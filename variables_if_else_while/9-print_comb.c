@@ -2,7 +2,7 @@
 /**
  * main - Loop prints all possible combinations of single-digit numbers
  *
- * Return: the digit numbers of base 10 with commas and space between except the last one
+ * Return: the digit numbers of base 10 with commas and space between
  */
 int main(void)
 {
