@@ -2,7 +2,7 @@
 /**
  * main - Loop for print all single digit numbers
  *
- * Return: list from 0 to 9 
+ * Return: list from 0 to 9
  */
 int main(void)
 {
