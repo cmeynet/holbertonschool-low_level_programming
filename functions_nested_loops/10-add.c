@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "main.h"
 /**
  * add - Function to add two integers
@@ -8,9 +9,6 @@
  * Return: the result of addition
  */
 int add(int a, int b)
-{
-	int c = a + b;
-
-	_putchar('0' + c);
-	return (a + b);
+{	
+	return ('0' + (a +b));
 }
