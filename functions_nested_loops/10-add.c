@@ -10,5 +10,7 @@
  */
 int add(int a, int b)
 {	
-	return ('0' + (a +b));
+	int c = a + b;
+
+	return (c);
 }
