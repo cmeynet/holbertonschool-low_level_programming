@@ -16,7 +16,7 @@ char *_strcpy(char *dest, char *src)
 		dest++;
 		src++;
 	}
-	*dest = '\0';
+	*dest = '\0'; /* Add the \0 to the end of dest */ 
 
 	return (ptr);
 }
