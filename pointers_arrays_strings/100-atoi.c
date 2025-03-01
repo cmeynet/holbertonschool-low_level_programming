@@ -11,19 +11,17 @@ int _atoi(char *s)
 	int sign = 1;
 	int result = 0;
 
-	/* Ignore the white space before the string and the non-numeric characters*/
-	while (*s == ' ' || *s < '0' || *s > '9')
+	/* Ignore the white space */
+	while (*s == ' ')
 	{
 		s++;
 	}
-
-	if (*s == '-') /* Indicate the sign */
+	
+	/* If they are mutliple signs */
+	while (*s == '+' || *s == '-')
 	{
-		sign = -1;
-		s++;
-	}
-	else if (*s == '+')
-	{
+		if (*s == '-')
+			sign = -sign; /*  Invert the sign for each '-' */
 		s++;
 	}
 
@@ -43,5 +41,5 @@ int _atoi(char *s)
 		s++;
 	}
 
-	return (result * sign);
+	return (sign * result);
 }
