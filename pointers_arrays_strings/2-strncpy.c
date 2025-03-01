@@ -23,7 +23,7 @@ char *_strncpy(char *dest, char *src, int n)
 	}
 
 	/* Is src is shorter thant n, fill dest with '\0' up to n */
-	while (n-- > 0)
+	while (n-- >= 0)
 	{
 		*dest = '\0';
 		dest++;
