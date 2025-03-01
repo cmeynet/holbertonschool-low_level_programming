@@ -16,7 +16,7 @@ int _atoi(char *s)
 	{
 		s++;
 	}
-	
+
 	/* If they are mutliple signs */
 	while (*s == '+' || *s == '-')
 	{
