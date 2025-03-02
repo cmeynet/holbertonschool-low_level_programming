@@ -12,14 +12,14 @@ int _atoi(char *s)
 	int result = 0;
 
 	/* If they are mutliple signs */
-	while (*s < '0' || *s > '9')
+	while (*s && (*s < '0' || *s > '9'))
 	{
 		if (*s == '-')
 			sign = -sign; /*  Invert the sign for each '-' */
 		s++;
 	}
 
-	while (*s >= '0' && *s <= '9')
+	while (*s && (*s >= '0' && *s <= '9'))
 	{
 		int number = *s - '0'; /* Converting characters to numbers */
 
