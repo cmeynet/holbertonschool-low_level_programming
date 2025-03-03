@@ -12,7 +12,7 @@
 char *_strpbrk(char *s, char *accept)
 {
 	char *tmp;
-	
+
 	/* Loop foreach character in s */
 	for (; *s != '\0'; s++)
 	{
