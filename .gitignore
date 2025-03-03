@@ -4,6 +4,10 @@
 # Except files .c et .h
 !*.c
 !*.h
+!*.md
 
 # Include all folders with files
 !*/
+
+# Exclude all main.c 
+*main.c
