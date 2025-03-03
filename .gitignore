@@ -4,3 +4,6 @@
 # Except files .c et .h
 !*.c
 !*.h
+
+# Include all folders with files
+!*/
