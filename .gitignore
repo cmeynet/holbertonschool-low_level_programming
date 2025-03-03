@@ -1,5 +1,6 @@
 # Ignore all
 *
+*main.c
 
 # Except files .c et .h
 !*.c
@@ -9,5 +10,3 @@
 # Include all folders with files
 !*/
 
-# Exclude all main.c 
-*main.c
