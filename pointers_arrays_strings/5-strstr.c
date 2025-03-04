@@ -24,7 +24,7 @@ char *_strstr(char *haystack, char *needle)
 			tmp_haystack = haystack;
 			for (tmp_needle = needle; *tmp_needle != '\0'; tmp_needle++)
 			{
-				/** 
+				/**
 				 * If the first character of tmp_haystack is
 				 * different of the first character of tmp_needle
 				 */
@@ -40,6 +40,8 @@ char *_strstr(char *haystack, char *needle)
 			if (found == 1)
 				return (haystack);
 		}
+		if (*needle == '\0')
+			return (haystack);
 	}
 	return (NULL);
 }
