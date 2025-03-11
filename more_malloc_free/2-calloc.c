@@ -2,8 +2,8 @@
 /**
  * _calloc - Function that allocate memory
  * for an array
- * @nmemb: number of elements
- * @size: size bytes for each element
+ * @nmemb: number of elements to allocate
+ * @size: size in bytes of each element
  *
  * Return: nothing
  */
@@ -17,7 +17,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 	}
 
-	ptr = malloc(nmemb * sizeof(unsigned int));
+	ptr = malloc(nmemb * sizeof(size));
 
 	if (ptr == 0)
 	{
