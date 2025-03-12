@@ -1,3 +1,5 @@
+#ifndef DOG_H
+#define DOG_H
 /**
  * struct dog - Combine data items of
  * different kinds
@@ -13,3 +15,5 @@ struct dog
 	float age;
 	char *owner;
 };
+
+#endif
