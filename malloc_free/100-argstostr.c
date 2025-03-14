@@ -10,7 +10,7 @@
 char *argstostr(int ac, char **av)
 {
 	char *ptr;
-	int i, len = 0;
+	int i, k = 0, len = 0;
 	char *j;
 
 	if (ac == 0 || av == NULL)
@@ -19,24 +19,26 @@ char *argstostr(int ac, char **av)
 	/* To calculate the total lenght of arguments */
 	for (i = 0; i < ac; i++)
 	{
-		for (j = av[i]; j[len] != '\0'; j++)
+		for (j = av[i]; *j != '\0'; j++)
 			len++;
 	}
 
-	ptr = malloc(sizeof(char) * (len + 1));
-
+	/* + ac for the '\n' and + 1 for the '\0' */
+	ptr = malloc(sizeof(char) * (len + ac + 1));
 	if (ptr == NULL)
 	{
-		free(ptr);
 		return (NULL);
 	}
 
-	for (i = 0; i < ac; i++)
+	/* To copy arguments in ptr */
+	for (i = 0; i < ac ; i++)
 	{
-		ptr[i] = ac;
-		printf("%s\n", av[i]);
+		for (j = av[i]; *j != '\0'; j++)
+			ptr[k++] = *j;
+		/* Add \n after each argument */
+		ptr[k++] = '\n';
 	}
 
-	ptr[len] = '\0';
+	ptr[k] = '\0';
 	return (ptr);
 }
