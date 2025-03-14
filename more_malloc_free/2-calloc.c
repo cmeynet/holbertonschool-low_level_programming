@@ -5,19 +5,21 @@
  * @nmemb: number of elements to allocate
  * @size: size in bytes of each element
  *
- * Return: nothing
+ * Return: pointer to the allocated memory
+ * or NULL if the allocation fails
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	unsigned int *ptr;
+	void *ptr;
 	unsigned int i;
+	char *ptr_ptr;
 
 	if (nmemb == 0 || size == 0)
 	{
 		return (NULL);
 	}
 
-	ptr = malloc(nmemb * sizeof(size));
+	ptr = malloc(nmemb * size);
 
 	if (ptr == 0)
 	{
@@ -25,7 +27,8 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	}
 
 	/* Initialize the memory at 0 */
-	for (i = 0; i < nmemb; i++)
+	ptr_ptr = ptr;
+	for (i = 0; i < (nmemb * size); i++)
 	{
 		ptr[i] = 0;
 	}
