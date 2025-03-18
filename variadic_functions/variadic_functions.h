@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+/* Library for handling variadic functions */
 #include <stdarg.h>
 
 int _putchar(char c);
