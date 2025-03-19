@@ -22,25 +22,25 @@ void print_all(const char * const format, ...)
 			if (is_first_argument != 1)
 				printf(", ");
 			is_first_argument = 0;
-			if (*ptr == 'i')
+
+			switch (*ptr)
 			{
-				printf("%d", va_arg(all, int));
-			}
-			if (*ptr == 'f')
-			{
-				printf("%f", va_arg(all, double));
-			}
-			if (*ptr == 'c')
-			{
-				printf("%c", va_arg(all, int));
-			}
-			if (*ptr == 's')
-			{
-				string = va_arg(all, char*);
-				if (string == NULL)
-					printf("(nil)");
-				else
-					printf("%s", string);
+				case 'i':
+					printf("%d", va_arg(all, int));
+					break;
+				case 'f':
+					printf("%f", va_arg(all, double));
+					break;
+				case 'c':
+					printf("%c", va_arg(all, int));
+					break;
+				case 's':
+					string = va_arg(all, char*);
+					if (string == NULL)
+						printf("(nil)");
+					if (string != NULL)
+						printf("%s", string);
+					break;
 			}
 		}
 		ptr++;
