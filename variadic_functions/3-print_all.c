@@ -2,8 +2,6 @@
 /**
  * print_int - Function that print an integer
  * @all: argument pointer
- *
- * Return: nothing
  */
 void print_int(va_list all)
 {
@@ -13,8 +11,6 @@ void print_int(va_list all)
 /**
  * print_float - Function that print a float
  * @all: argument pointer
- *
- * Return: nothing
  */
 void print_float(va_list all)
 {
@@ -24,8 +20,6 @@ void print_float(va_list all)
 /**
  * print_char - Function that print a char
  * @all: argument pointer
- *
- * Return: nothing
  */
 void print_char(va_list all)
 {
@@ -35,8 +29,6 @@ void print_char(va_list all)
 /**
  * print_string - Function that print a string
  * @all: argument pointer
- *
- * Return: nothing
  */
 void print_string(va_list all)
 {
@@ -45,19 +37,15 @@ void print_string(va_list all)
 	if (string == NULL)
 	{
 		printf("(nil)");
+		return;
 	}
-	else
-	{
-		printf("%s", string);
-	}
+	printf("%s", string);
 }
 
 /**
  * print_all - Function that prints anything
  * @format: list of types of arguments
  * passed to the function
- *
- * Return: nothing
  */
 void print_all(const char * const format, ...)
 {
