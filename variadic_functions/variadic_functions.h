@@ -7,6 +7,19 @@
 /* Library for handling variadic functions */
 #include <stdarg.h>
 
+/**
+ * struct print - Struct to print
+ * based on argument type
+ *
+ * @type: type of argument
+ * @f: the function associated
+ */
+typedef struct print
+{
+	char *type;
+	void (*f)(va_list all);
+} print_f;
+
 int _putchar(char c);
 int sum_them_all(const unsigned int n, ...);
 void print_numbers(const char *separator, const unsigned int n, ...);

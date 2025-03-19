@@ -1,5 +1,58 @@
 #include "variadic_functions.h"
 /**
+ * print_int - Function that print an integer
+ * @all: argument pointer
+ *
+ * Return: nothing
+ */
+void print_int(va_list all)
+{
+	printf("%d", va_arg(all, int));
+}
+
+/**
+ * print_float - Function that print a float
+ * @all: argument pointer
+ *
+ * Return: nothing
+ */
+void print_float(va_list all)
+{
+	printf("%f", va_arg(all, double));
+}
+
+/**
+ * print_char - Function that print a char
+ * @all: argument pointer
+ *
+ * Return: nothing
+ */
+void print_char(va_list all)
+{
+	printf("%c", va_arg(all, int));
+}
+
+/**
+ * print_string - Function that print a string
+ * @all: argument pointer
+ *
+ * Return: nothing
+ */
+void print_string(va_list all)
+{
+	char *string = va_arg(all, char*);
+
+	if (string == NULL)
+	{
+		printf("(nil)");
+	}
+	else
+	{
+		printf("%s", string);
+	}
+}
+
+/**
  * print_all - Function that prints anything
  * @format: list of types of arguments
  * passed to the function
@@ -8,43 +61,40 @@
  */
 void print_all(const char * const format, ...)
 {
-	char *string;
-	int is_first_argument = 1;
-	/* Use a pointer without modify format */
-	const char *ptr = format;
+	/* Array of structures to associate a character with a function */
+	print_f types[] = {
+		{"i", print_int},
+		{"f", print_float},
+		{"c", print_char},
+		{"s", print_string},
+		{NULL, NULL},
+	};
+	char *separator = "";
+	/* i to browse the format string and j for the types[] array*/
+	int i = 0, j = 0;
 	va_list all;
 
 	va_start(all, format);
-	while (*ptr != '\0')
+	while (format[i] != '\0' && format != NULL)
 	{
-		if (*ptr == 'i' || *ptr == 'f' || *ptr == 'c' || *ptr == 's')
+		/* To browse the character in types[] */
+		while (types[j].type != NULL)
 		{
-			if (is_first_argument != 1)
-				printf(", ");
-			is_first_argument = 0;
-
-			switch (*ptr)
+			if (*types[j].type == format[i])
 			{
-				case 'i':
-					printf("%d", va_arg(all, int));
-					break;
-				case 'f':
-					printf("%f", va_arg(all, double));
-					break;
-				case 'c':
-					printf("%c", va_arg(all, int));
-					break;
-				case 's':
-					string = va_arg(all, char*);
-					if (string == NULL)
-						printf("(nil)");
-					if (string != NULL)
-						printf("%s", string);
-					break;
+				/* Doesn't display the comma for the first element */
+				printf("%s", separator);
+				/* Calls the corresponding function and print the value */
+				types[j].f(all);
+				/* Change the separator to the following */
+				separator = ", ";
 			}
+			j++;
 		}
-		ptr++;
+		/* Initialize j for the next argument */
+		j = 0;
+		i++;
 	}
-	va_end(all);
 	printf("\n");
+	va_end(all);
 }
