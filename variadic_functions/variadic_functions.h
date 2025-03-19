@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 /* Library for handling variadic functions */
 #include <stdarg.h>
 
