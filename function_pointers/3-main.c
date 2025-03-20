@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 	/* Declare a function pointer for the function associated */
 	int (*fptr)(int, int);
 
-	if (argc > 4)
+	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
@@ -25,7 +25,10 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(99);
 	}
-	/* Store the result of the operation */
+	/**
+	 * Store the result of the operation 
+	 * Use atoi() to convert arguments to ing
+	 */
 	result = fptr(atoi(argv[1]), atoi(argv[3]));
 	printf("%d\n", result);
 
