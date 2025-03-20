@@ -17,7 +17,7 @@
 typedef struct print
 {
 	char *type;
-	void (*f)(va_list all);
+	void (*f)(va_list);
 } print_f;
 
 int _putchar(char c);

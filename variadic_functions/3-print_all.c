@@ -60,9 +60,9 @@ void print_all(const char * const format, ...)
 	char *separator = "";
 	/* i to browse the format string and j for the types[] array*/
 	int i = 0, j = 0;
-	va_list all;
+	va_list args;
 
-	va_start(all, format);
+	va_start(args, format);
 	while (format[i] != '\0' && format != NULL)
 	{
 		/* To browse the character in types[] */
@@ -73,7 +73,7 @@ void print_all(const char * const format, ...)
 				/* Doesn't display the comma for the first element */
 				printf("%s", separator);
 				/* Calls the corresponding function and print the value */
-				types[j].f(all);
+				types[j].f(args);
 				/* Change the separator to the following */
 				separator = ", ";
 			}
@@ -84,5 +84,5 @@ void print_all(const char * const format, ...)
 		i++;
 	}
 	printf("\n");
-	va_end(all);
+	va_end(args);
 }
