@@ -59,10 +59,12 @@ void print_all(const char * const format, ...)
 	};
 	char *separator = "";
 	/* i to browse the format string and j for the types[] array*/
-	unsigned int i = 0, j = 0;
+	unsigned int i, j;
 	va_list args;
 
 	va_start(args, format);
+
+	i = 0;
 	while (format[i] != '\0' && format != NULL)
 	{
 		/* Initialize j for the next argument */
