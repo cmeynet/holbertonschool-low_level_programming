@@ -65,6 +65,8 @@ void print_all(const char * const format, ...)
 	va_start(args, format);
 	while (format[i] != '\0' && format != NULL)
 	{
+		/* Initialize j for the next argument */
+		j = 0;
 		/* To browse the character in types[] */
 		while (types[j].type != NULL)
 		{
@@ -79,8 +81,6 @@ void print_all(const char * const format, ...)
 			}
 			j++;
 		}
-		/* Initialize j for the next argument */
-		j = 0;
 		i++;
 	}
 	printf("\n");
