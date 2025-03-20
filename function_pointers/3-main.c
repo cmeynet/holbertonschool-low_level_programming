@@ -26,8 +26,8 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 	/**
-	 * Store the result of the operation 
-	 * Use atoi() to convert arguments to ing
+	 * * Store the result of the operation
+	 * * Use atoi() to convert arguments to ing
 	 */
 	result = fptr(atoi(argv[1]), atoi(argv[3]));
 	printf("%d\n", result);
