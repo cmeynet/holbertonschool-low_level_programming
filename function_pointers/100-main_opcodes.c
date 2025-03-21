@@ -20,7 +20,7 @@ void print_opcode(function_ptr func, int num_bytes)
 	for (i = 0; i < num_bytes; i++)
 	{
 		/* Display in hexadecimal */
-		printf("%02x ", (unsigned char)ptr[i]);
+		printf("%02hhx ", ptr[i]);
 	}
 	printf("\n");
 }
