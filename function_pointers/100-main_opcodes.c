@@ -10,7 +10,7 @@
 
 typedef void (*function_ptr)();
 
-void print_opcode(function_ptr func, const int num_bytes)
+void print_opcode(function_ptr func, int num_bytes)
 {
 	/* Explicit cast to avoid error */
 	unsigned char *ptr = (unsigned char *)func;
@@ -20,7 +20,7 @@ void print_opcode(function_ptr func, const int num_bytes)
 	for (i = 0; i < num_bytes; i++)
 	{
 		/* Display in hexadecimal */
-		printf("%02x ", ptr[i]);
+		printf("%02x ", (unsigned char)ptr[i]);
 	}
 	printf("\n");
 }
