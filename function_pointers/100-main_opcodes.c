@@ -46,6 +46,9 @@ int main(int argc, char *argv[])
 		exit(2);
 	}
 
-	print_opcode((function_ptr)main, atoi(argv[1]));
+	if (atoi(argv[1]) > 0)
+	{
+		print_opcode((function_ptr)main, atoi(argv[1]));
+	}
 	return (0);
 }
