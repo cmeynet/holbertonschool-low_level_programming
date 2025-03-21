@@ -17,12 +17,12 @@ void print_opcode(function_ptr func, int num_bytes)
 	int i;
 
 
-	for (i = 0; i < num_bytes; i++)
+	for (i = 0; i < (num_bytes - 1); i++)
 	{
 		/* Display in hexadecimal */
 		printf("%02hhx ", ptr[i]);
 	}
-	printf("\n");
+	printf("%02hhx\n", ptr[i]);
 }
 
 /**
