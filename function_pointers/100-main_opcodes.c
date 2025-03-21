@@ -10,11 +10,12 @@
 
 typedef void (*function_ptr)();
 
-void print_opcode(function_ptr func, int num_bytes)
+void print_opcode(function_ptr func, const int num_bytes)
 {
 	/* Explicit cast to avoid error */
-	unsigned char *ptr = (char *)func;
+	unsigned char *ptr = (unsigned char *)func;
 	int i;
+
 
 	for (i = 0; i < num_bytes; i++)
 	{
@@ -44,10 +45,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(2);
 	}
-	
-	if (argc == 2)
-	{
-		print_opcode((function_ptr)main, atoi(argv[1]));
-	}
+
+	print_opcode((function_ptr)main, atoi(argv[1]));
 	return (0);
 }
