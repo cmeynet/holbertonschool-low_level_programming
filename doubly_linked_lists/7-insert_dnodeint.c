@@ -4,7 +4,7 @@
  * a new node at a given position
  * @h: a pointer to a pointer of type list_t
  * @idx: index of the node where the node shoulb be added
- * @n: number to be added at the new node
+ * @n: the value that the new node should contain
  *
  * Return: the address of the new node
  * or NULL if it failed
@@ -39,8 +39,10 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			new->next = current->next;
 			new->prev = current;
 			if (current->next != NULL)
+				/*Updates the previous from the next to the new*/
 				current->next->prev = new;
 
+			/*Connect current to the new node*/
 			current->next = new;
 			return (new);
 		}
