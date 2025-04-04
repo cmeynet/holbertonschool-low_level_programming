@@ -14,20 +14,18 @@ int create_file(const char *filename, char *text_content)
 
 	if (filename == NULL)
 		return (-1);
+
+	if (text_content == NULL)
+	{
+		fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC);
+		return (1);
+	}
 	while (text_content[len] != '\0')
 	{
 		len++;
 	}
-	if (text_content == NULL)
-	{
-		fd = open(filename, O_CREAT);
-		if (fd == -1)
-		{
-			close(fd);
-			return (-1);
-		}
-	}
-	if (open(filename, O_RDONLY) == -1)/*If the file doesn't exist*/
+	/*If the file doesn't exist*/
+	if (open(filename, O_RDONLY) == -1)
 	{
 		fd = open(filename, O_CREAT | O_WRONLY, 0600);
 		if (fd == -1)
